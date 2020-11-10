@@ -137,10 +137,10 @@
   function upload(actualScore) {
     fetch(`https://jsonplaceholder.typicode.com/posts`, {
       method: "POST",
-      body: score,
+      body: actualScore,
     })
       .then(() => console.log("Score sent successfully"))
-      .catch(() => console.log("Error trying to send the score"));
+      .catch((error) => console.log(`Error trying to send the score ${error}`));
   }
   function init() {
     // Get canvas and context
@@ -398,6 +398,8 @@
     }
   };
   highscoresScene.act = function () {
+    // Sen the score
+    // upload(score);
     // Load next scene
     if (lastPress === KEY_ENTER) {
       loadScene(levelScene);
